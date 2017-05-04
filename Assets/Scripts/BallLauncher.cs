@@ -18,7 +18,8 @@ public class BallLauncher : MonoBehaviour {
             GameObject instance = Instantiate(ballPreFab);
             instance.transform.position = transform.position;
             Rigidbody rb = instance.GetComponent<Rigidbody>();
-            rb.velocity = Vector3.forward * ballSpeed;
+            Camera camera = GetComponentInChildren<Camera>();
+            rb.velocity = camera.transform.rotation * Vector3.forward * ballSpeed;
         }
     }
 }
